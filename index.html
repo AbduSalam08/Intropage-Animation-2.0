@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Page Animation</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- font voyage -->
+    <link href="http://fonts.cdnfonts.com/css/voyage" rel="stylesheet">
+    <!-- font monument extended -->
+    <link href="http://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <button class="enter">START</button>
+
+        <div class="text-container"></div>
+
+        <div class="text-wrapper">
+            <div class="text">
+                You can totally do this. You can totally do this. You can totally do this.
+            </div>
+            <div class="text">
+                You can totally do this. You can totally do this. You can totally do this.
+            </div>
+            <div class="text">
+                You can totally do this. You can totally do this. You can totally do this.
+            </div>
+            <div class="text">
+                You can totally do this. You can totally do this. You can totally do this.
+            </div>
+            <div class="text">
+                You can totally do this. You can totally do this. You can totally do this.
+            </div>
+            <div class="text">
+                You can totally do this. You can totally do this. You can totally do this.
+            </div>
+            <div class="text">
+                You can totally do this. You can totally do this. You can totally do this.
+            </div>
+
+
+        </div>
+
+        <div class="header">
+            <h1>
+                <!--Welcome Back To The 🚀-->THE VOYAGER.
+            </h1>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"
+        integrity="sha512-Mf/xUqfWvDIr+1B6zfnIDIiG7XHzyP/guXUWgV6PgaQoIFeXkJQR5XWh9fqAiCiRCpemabt3naV4jhDWVnuYDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        const btn = document.querySelector(".enter");
+        btn.addEventListener("click", function () {
+
+            gsap.to(".enter", 1, {
+                opacity: 0,
+                y: -40,
+                ease: Expo.easeInOut,
+            });
+
+            gsap.to(".text-container ", 2, {
+                ease: Expo.easeInOut,
+                delay: 1,
+                background: '#9988ff'
+            });
+
+            gsap.to(".text-container ", 1, {
+                ease: Expo.easeInOut,
+                delay: 2,
+                background: '#88ff98'
+            });
+
+
+            gsap.to(".text-container ", 1, {
+                ease: Expo.easeInOut,
+                delay: 3,
+                background: 'orange'
+            });
+
+            gsap.to(".text-wrapper > div ", 1, {
+                X: "500",
+                ease: Expo.easeInOut,
+                delay: 1,
+                stagger: 0.1
+            }
+            )
+
+            gsap.to(".text-wrapper ", 3, {
+                y: 1200,
+                scale: 4.5,
+                rotate: -30,
+                ease: Expo.easeInOut,
+                delay: 1,
+            });
+
+            gsap.to(".text ", 1, {
+                opacity: 1,
+                ease: Expo.easeInOut,
+                delay: 2
+
+            })
+
+            gsap.to(".text-wrapper > div ", 7, {
+                x: "-3500",
+                ease: Expo.easeInOut,
+                delay: 0.5,
+                stagger: 0.5,
+            });
+
+            gsap.to(".text-container ", 2, {
+                bottom: "-100%",
+                ease: Expo.easeInOut,
+                delay: 3.5,
+            });
+
+            let textWrapper = document.querySelector(".header > h1");
+            textWrapper.innerHTML = textWrapper.textContent.replace(
+                /\S/g,
+                "<span class='letter'>$&</span>"
+            );
+
+            anime.timeline({ loop: false })
+                // .add({
+                //     targets: '.header > h1 > .letter',
+                //     translateX: [40, 0],
+                //     translateZ: 0,
+                //     opacity: [0, 1],
+                //     easing: "easeOutExpo",
+                //     duration: 1200,
+                //     delay: (el, i) => 6000 + 50 * i
+                // })
+                .add({
+                    targets: '.header > h1 > .letter',
+                    translateX: [0, 0],
+                    opacity: [0, 1],
+                    easing: "easeInExpo",
+                    duration: 2000,
+                    delay: (el, i) => 5000 + 40 * i,
+                });
+
+        })
+    </script>
+
+</body>
